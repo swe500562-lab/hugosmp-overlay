@@ -4,94 +4,60 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-* { box-sizing: border-box; }
-body { margin:0; padding:5px; background:transparent; color:#fff; font-family:Arial, sans-serif; }
-.wrap { width:420px; text-align:center; }
-.header {
-  display:inline-block; padding:7px 22px; margin-bottom:7px;
-  border:1px solid #5cff9b; border-radius:9px;
-  background:rgba(7,22,15,.96); color:#77ffad;
-  font-size:17px; font-weight:1000; letter-spacing:3px;
-  text-shadow:0 0 9px rgba(80,255,145,.45);
-}
-.card {
-  overflow:hidden; border:1px solid #54e98b; border-radius:12px;
-  background:rgba(8,20,15,.97);
-  box-shadow:0 0 13px rgba(65,255,135,.18);
-}
-.top {
-  display:flex; align-items:center; justify-content:center; gap:12px;
-  padding:9px 12px; background:rgba(30,65,45,.55);
-}
-.spawner {
-  width:45px; height:45px; flex:0 0 45px; position:relative;
-  border:3px solid #8ba895; border-radius:6px;
-  background:
-    linear-gradient(90deg,transparent 43%,#9cb6a3 44% 49%,transparent 50% 72%,#9cb6a3 73% 78%,transparent 79%),
-    linear-gradient(0deg,transparent 43%,#9cb6a3 44% 49%,transparent 50% 72%,#9cb6a3 73% 78%,transparent 79%),
-    repeating-linear-gradient(45deg,#263c30 0 5px,#385441 5px 10px);
-  box-shadow:inset 0 0 8px #000,0 0 7px rgba(100,255,150,.2);
-}
-.spawner:after {
-  content:""; position:absolute; inset:4px; border:1px solid #d1e5d7;
-  border-radius:2px; opacity:.7;
-}
-.spawner:before {
-  content:""; position:absolute; z-index:2; width:8px; height:8px;
-  left:50%; top:50%; transform:translate(-50%,-50%);
-  border-radius:2px; background:#c7ffd8; box-shadow:0 0 8px #76ffad;
-}
-.title { text-align:left; font-size:19px; font-weight:1000; letter-spacing:1px; }
-.sub { margin-top:3px; text-align:left; color:#9bb9a5; font-size:10px; letter-spacing:1px; font-weight:800; }
-.prices { display:grid; grid-template-columns:1fr 1fr; }
-.pricebox { padding:9px 6px 10px; }
-.pricebox + .pricebox { border-left:1px solid rgba(126,255,170,.35); }
-.label { color:#a9c4b2; font-size:10px; font-weight:900; letter-spacing:2px; }
-.price { margin-top:4px; font-size:20px; font-weight:1000; white-space:nowrap; }
-.buy { color:#7cddff; }
-.sell { color:#73ffa5; }
-.footer { padding:5px; border-top:1px solid rgba(126,255,170,.18); color:#789584; font-size:9px; font-weight:800; letter-spacing:1.5px; }
+*{box-sizing:border-box}
+body{margin:0;padding:3px;background:transparent;color:#fff;font-family:Arial,sans-serif}
+.wrap{width:300px;text-align:center}
+.header{display:inline-block;padding:4px 14px;margin-bottom:4px;border:1px solid #5cff9b;border-radius:7px;background:rgba(7,22,15,.96);color:#77ffad;font-size:12px;font-weight:1000;letter-spacing:2px}
+.card{overflow:hidden;border:1px solid #54e98b;border-radius:8px;background:rgba(8,20,15,.97);box-shadow:0 0 9px rgba(65,255,135,.15)}
+.top{display:flex;align-items:center;justify-content:center;gap:8px;padding:6px;background:rgba(30,65,45,.55)}
+.spawner{width:30px;height:30px;flex:0 0 30px;position:relative;border:2px solid #8ba895;border-radius:4px;background:linear-gradient(90deg,transparent 43%,#9cb6a3 44% 49%,transparent 50% 72%,#9cb6a3 73% 78%,transparent 79%),linear-gradient(0deg,transparent 43%,#9cb6a3 44% 49%,transparent 50% 72%,#9cb6a3 73% 78%,transparent 79%),repeating-linear-gradient(45deg,#263c30 0 4px,#385441 4px 8px)}
+.spawner:before{content:"";position:absolute;z-index:2;width:6px;height:6px;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:2px;background:#c7ffd8;box-shadow:0 0 6px #76ffad}
+.title{text-align:left;font-size:14px;font-weight:1000;letter-spacing:.5px}
+.sub{margin-top:2px;text-align:left;color:#9bb9a5;font-size:8px;letter-spacing:.5px;font-weight:800}
+.prices{display:grid;grid-template-columns:1fr 1fr}
+.pricebox{padding:6px 4px}
+.pricebox+.pricebox{border-left:1px solid rgba(126,255,170,.35)}
+.label{color:#a9c4b2;font-size:8px;font-weight:900;letter-spacing:1.5px}
+.price{margin-top:3px;font-size:15px;font-weight:1000;white-space:nowrap}
+.buy{color:#7cddff}.sell{color:#73ffa5}
+.footer{padding:4px;border-top:1px solid rgba(126,255,170,.18);color:#9bb9a5;font-size:9px;font-weight:800;letter-spacing:.5px}
+#count{color:#78ffa6;font-weight:1000}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="header">HUGOSMP</div>
-  <div class="card">
-    <div class="top">
-      <div class="spawner"></div>
-      <div>
-        <div class="title" id="name">SKELLY SPAWNER</div>
-        <div class="sub" id="status">SKELETT · VERFÜGBAR</div>
-      </div>
-    </div>
-    <div class="prices">
-      <div class="pricebox">
-        <div class="label">KAUFEN</div>
-        <div class="price buy" id="buy">22.5m $</div>
-      </div>
-      <div class="pricebox">
-        <div class="label">VERKAUFEN</div>
-        <div class="price sell" id="sell">30m $</div>
-      </div>
-    </div>
-    <div class="footer">SPAWNER MARKT · WECHSEL ALLE 10 SEK.</div>
+ <div class="header">HUGOSMP</div>
+ <div class="card">
+  <div class="top">
+   <div class="spawner"></div>
+   <div><div class="title" id="name">SKELLY SPAWNER</div><div class="sub" id="status">SKELETT · VERFÜGBAR</div></div>
   </div>
+  <div class="prices">
+   <div class="pricebox"><div class="label">KAUFEN</div><div class="price buy" id="buy">22.5m $</div></div>
+   <div class="pricebox"><div class="label">VERKAUFEN</div><div class="price sell" id="sell">30m $</div></div>
+  </div>
+  <div class="footer">WECHSEL IN <span id="count">10</span>s</div>
+ </div>
 </div>
 <script>
-const spawner = [
+const spawner=[
  {name:"SKELLY SPAWNER",status:"SKELETT · VERFÜGBAR",buy:"22.5m $",sell:"30m $"},
  {name:"CREEPER SPAWNER",status:"CREEPER · NICHT AUF LAGER",buy:"18.5m $",sell:"NICHT AUF LAGER"}
 ];
-let index=0;
-function wechseln(){
+let index=0,remaining=10;
+function anzeigen(){
  const s=spawner[index];
  document.getElementById("name").textContent=s.name;
  document.getElementById("status").textContent=s.status;
  document.getElementById("buy").textContent=s.buy;
  document.getElementById("sell").textContent=s.sell;
- index=(index+1)%spawner.length;
 }
-setInterval(wechseln,10000);
+anzeigen();
+setInterval(()=>{
+ remaining--;
+ if(remaining<=0){index=(index+1)%spawner.length;anzeigen();remaining=10;}
+ document.getElementById("count").textContent=remaining;
+},1000);
 </script>
 </body>
 </html>
