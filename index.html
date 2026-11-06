@@ -10,8 +10,7 @@ body{margin:0;padding:3px;background:transparent;color:#fff;font-family:Arial,sa
 .header{display:inline-block;padding:4px 14px;margin-bottom:4px;border:1px solid #5cff9b;border-radius:7px;background:rgba(7,22,15,.96);color:#77ffad;font-size:12px;font-weight:1000;letter-spacing:2px}
 .card{overflow:hidden;border:1px solid #54e98b;border-radius:8px;background:rgba(8,20,15,.97);box-shadow:0 0 9px rgba(65,255,135,.15)}
 .top{display:flex;align-items:center;justify-content:center;gap:8px;padding:6px;background:rgba(30,65,45,.55)}
-.spawner{width:30px;height:30px;flex:0 0 30px;position:relative;border:2px solid #8ba895;border-radius:4px;background:linear-gradient(90deg,transparent 43%,#9cb6a3 44% 49%,transparent 50% 72%,#9cb6a3 73% 78%,transparent 79%),linear-gradient(0deg,transparent 43%,#9cb6a3 44% 49%,transparent 50% 72%,#9cb6a3 73% 78%,transparent 79%),repeating-linear-gradient(45deg,#263c30 0 4px,#385441 4px 8px)}
-.spawner:before{content:"";position:absolute;z-index:2;width:6px;height:6px;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:2px;background:#c7ffd8;box-shadow:0 0 6px #76ffad}
+.spawner-img{width:34px;height:34px;object-fit:contain;image-rendering:pixelated;filter:drop-shadow(0 0 4px rgba(110,255,160,.28))}
 .title{text-align:left;font-size:14px;font-weight:1000;letter-spacing:.5px}
 .sub{margin-top:2px;text-align:left;color:#9bb9a5;font-size:8px;letter-spacing:.5px;font-weight:800}
 .prices{display:grid;grid-template-columns:1fr 1fr}
@@ -29,7 +28,7 @@ body{margin:0;padding:3px;background:transparent;color:#fff;font-family:Arial,sa
  <div class="header">HUGOSMP</div>
  <div class="card">
   <div class="top">
-   <div class="spawner"></div>
+   <img class="spawner-img" src="https://mcasset.cloud/1.21.11/assets/minecraft/textures/block/spawner.png" alt="Minecraft Spawner">
    <div><div class="title" id="name">SKELLY SPAWNER</div><div class="sub" id="status">SKELETT · VERFÜGBAR</div></div>
   </div>
   <div class="prices">
