@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<style>
+body {
+  margin: 0;
+  background: transparent;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+.box {
+  width: 650px;
+  padding: 25px;
+  border: 3px solid #55dd82;
+  border-radius: 20px;
+  background: rgba(12,25,17,0.96);
+  text-align: center;
+}
+h1 { color: #65ed91; }
+.mob { font-size: 55px; }
+.price {
+  display: flex;
+  justify-content: space-around;
+  font-size: 25px;
+  font-weight: bold;
+}
+.buy { color: #8beaff; }
+.sell { color: #65ed91; }
+</style>
+</head>
+<body>
+
+<div class="box">
+  <h1>HUGOSMP</h1>
+  <h2>SPAWNER MARKT</h2>
+
+  <div class="mob" id="mob">💀</div>
+  <h2 id="name">SKELLY SPAWNER</h2>
+
+  <div class="price">
+    <div>
+      <div>KAUFEN</div>
+      <div class="buy" id="buy">22.5m $</div>
+    </div>
+    <div>
+      <div>VERKAUFEN</div>
+      <div class="sell" id="sell">30m $</div>
+    </div>
+  </div>
+
+  <p>Wechsel alle 10 Sekunden</p>
+</div>
+
+<script>
+const spawner = [
+  {
+    mob: "💀",
+    name: "SKELLY SPAWNER",
+    buy: "22.5m $",
+    sell: "30m $"
+  },
+  {
+    mob: "🟩",
+    name: "CREEPER SPAWNER",
+    buy: "18.5m $",
+    sell: "NICHT AUF LAGER"
+  }
+];
+
+let index = 0;
+
+function wechseln() {
+  const s = spawner[index];
+
+  document.getElementById("mob").textContent = s.mob;
+  document.getElementById("name").textContent = s.name;
+  document.getElementById("buy").textContent = s.buy;
+  document.getElementById("sell").textContent = s.sell;
+
+  index = (index + 1) % spawner.length;
+}
+
+setInterval(wechseln, 10000);
+</script>
+
+</body>
+</html>
